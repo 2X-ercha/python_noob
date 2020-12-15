@@ -2,6 +2,8 @@
 
 这是一个python菜鸡的python学习之路（所以定名为python_noob）
 
+--------
+
 # About Branchs
 
 ## Calculation-and-artificial-intelligence-training
