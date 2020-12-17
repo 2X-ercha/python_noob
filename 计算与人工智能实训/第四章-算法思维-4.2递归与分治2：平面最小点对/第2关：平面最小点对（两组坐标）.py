@@ -15,6 +15,9 @@ def Distance(a, b):
 def Distance_x(a, b):
     return abs(a[0]-b[0])
 
+def Distance_y(a, b):
+    return abs(a[1]-b[1])
+
 # 求[low..high]区间内的最小点距
 def FidMin(A, low, high):
     ########## begin ##########
@@ -25,19 +28,12 @@ def FidMin(A, low, high):
     FidMin_left=FidMin(A,low,mid)  # 左区间最小
     FidMin_right=FidMin(A,mid+1,high)  # 右区间最小
     d=min(FidMin_left,FidMin_right)
-    left,right=[],[]
-    for i in range(mid-1,low-1,-1):
-        if Distance_x(A[i],A[mid])<=d:
-            left.append(i)
-        else:break
-    for i in range(mid+1,high+1):
-        if Distance_x(A[i],A[mid])<=d:
-           right.append(i)
-        else:break
-    left.append(mid)
-    for x in left:
-        for y in right:
-            if Distance(A[x],A[y])<d:d=Distance(A[x],A[y])
+    for i in range(mid,low-1,-1):
+        if Distance_x(A[i],A[mid])>d:break
+        for j in range(mid+1,high+1):
+            if Distance_x(A[i],A[j])>d:break
+            if Distance_y(A[i],A[j])<=d:
+                d=min(Distance(A[i],A[j]),d)
     return d
     ########## end ##########
 
