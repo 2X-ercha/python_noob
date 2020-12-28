@@ -19,12 +19,3 @@ elif workYear >= 10 and workYear < 15:
 else:
     # ********** End ***********#
     print("工资涨幅为15%")
-
-
-if a>1:
-    a=2
-    b=3
-elif a>0:
-    pass
-else:
-    pass
